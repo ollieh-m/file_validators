@@ -20,7 +20,7 @@ module ActiveModel
             if values.any? { |v| not valid_size?(value_byte_size(v), option, option_value) }
               record.errors.add(attribute,
                                 "file_size_is_#{option}".to_sym,
-                                filtered_options(values).merge!(detect_error_options(option_value)))
+                                **filtered_options(values).merge!(detect_error_options(option_value)))
             end
           end
         end
